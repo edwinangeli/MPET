@@ -1,0 +1,5545 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API",
+    "description": "Documentation of the application interface for managing operational barge information."
+  },
+  "paths": {
+    "/hcn/handlings:cancel": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Cancel a handling",
+        "operationId": "cancelHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaHandlingReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:cancel": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Cancel a created barge visit",
+        "operationId": "cancelVisit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVisitReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages:cancel": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Cancel a created barge voyage",
+        "operationId": "cancelVoyage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVoyageCancelRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/detachedHandlings:create": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Create a handling without a visit",
+        "operationId": "createDetachedHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaDetachedHandlingCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaHandlingReference"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/attachedHandlings:create": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Create a handling for a barge visit, also known as containers",
+        "operationId": "createHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaAttachedHandlingCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaHandlingReference"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:create": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Create a barge visit, also known as a call",
+        "operationId": "createVisit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVisitCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaVisitReference"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages:create": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Create a barge voyage, also known as a rotation",
+        "operationId": "createVoyage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVoyageCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaVoyageCreationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/attachedHandlings:detach": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Remove handling for a visit, this will not delete the handling, but become detached",
+        "operationId": "detachHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaHandlingReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:finalize": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Finalize the load-discharge list of a barge visit",
+        "operationId": "finalizeLoadDischargeList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaFinalizeLoadDischargeListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/detachedHandlings:get": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Retrieve a handling without a visit",
+        "operationId": "getDetachedHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaHandlingReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaDetachedHandlingDetailsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages:get": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Retrieve the barge voyage",
+        "operationId": "getVoyage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVoyageReferenceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaVoyageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/handlings:move": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Move a handling to another visit",
+        "operationId": "moveHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaMoveHandlingRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:move": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Move a visit to a different barge voyage",
+        "operationId": "moveVisit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVisitMoveRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:send": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Send the load-discharge list of a barge visit (before cargo cut-off)",
+        "operationId": "sendLoadDischargeList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVisitReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages/cargoDeclarants:update": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Register or update the declarants of voyages",
+        "operationId": "updateCargoDeclarations",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaCargoDeclarantsUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/detachedHandlings:update": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Update a handling without a visit",
+        "operationId": "updateDetachedHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaDetachedHandlingUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/attachedHandlings:update": {
+      "post": {
+        "tags": [
+          "Operator - Handlings"
+        ],
+        "description": "Update a handling for a barge visit",
+        "operationId": "updateHandling",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaAttachedHandlingUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/visits:update": {
+      "post": {
+        "tags": [
+          "Operator - Visits"
+        ],
+        "description": "Update a created barge visit",
+        "operationId": "updateVisit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVisitUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages:update": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Update a created barge voyage",
+        "operationId": "updateVoyage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaVoyageUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/voyages/restrictions:update": {
+      "post": {
+        "tags": [
+          "Operator - Voyages"
+        ],
+        "description": "Register restrictions for the barge voyage",
+        "operationId": "updateVoyageRestrictions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaRestrictionUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/disconnectClient": {
+      "post": {
+        "tags": [
+          "Listening"
+        ],
+        "operationId": "disconnectClient",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaDisconnectRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/listen/shipments": {
+      "post": {
+        "tags": [
+          "Listening"
+        ],
+        "operationId": "listenToShipmentUpdates",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaListenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaListenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/listen": {
+      "post": {
+        "tags": [
+          "Listening"
+        ],
+        "operationId": "listenToUpdate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaListenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HnaListenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/resetPosition": {
+      "post": {
+        "tags": [
+          "Listening"
+        ],
+        "operationId": "resetPosition",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaResetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hcn/updatePosition": {
+      "post": {
+        "tags": [
+          "Listening"
+        ],
+        "operationId": "updatePosition",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HnaUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HnaHandlingReference": {
+        "required": [
+          "handlingId"
+        ],
+        "type": "object",
+        "properties": {
+          "handlingId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaVisitReference": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaVoyageCancelRequest": {
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaBargeHandlingData": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          }
+        ]
+      },
+      "HnaDetachedHandlingCreationRequest": {
+        "type": "object",
+        "properties": {
+          "terminal": {
+            "$ref": "#/components/schemas/HnaTerminal"
+          },
+          "eta": {
+            "type": "string"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          }
+        }
+      },
+      "HnaHandlingData": {
+        "type": "object",
+        "properties": {
+          "equipmentNumber": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "tareWeight": {
+            "type": "number",
+            "format": "double"
+          },
+          "sealNumber": {
+            "type": "string"
+          },
+          "reefer": {
+            "$ref": "#/components/schemas/HnaReefer"
+          },
+          "outOfGauge": {
+            "$ref": "#/components/schemas/HnaOutOfGauge"
+          },
+          "bookingNumber": {
+            "type": "string"
+          },
+          "shippingCompany": {
+            "$ref": "#/components/schemas/HnaShippingCompany"
+          },
+          "sizeType": {
+            "$ref": "#/components/schemas/HnaSizeType"
+          },
+          "type": {
+            "type": "string"
+          },
+          "full": {
+            "type": "boolean"
+          },
+          "shippersOwned": {
+            "type": "boolean"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "doorOpen": {
+            "type": "boolean"
+          },
+          "chainWork": {
+            "type": "boolean"
+          },
+          "generator": {
+            "type": "boolean"
+          },
+          "damageRemark": {
+            "type": "string"
+          },
+          "previousPort": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "nextPort": {
+            "type": "string"
+          },
+          "finalPort": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "inlandTerminal": {
+            "$ref": "#/components/schemas/HnaInlandTerminal"
+          },
+          "transportNumber": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "modality"
+        }
+      },
+      "HnaInlandTerminal": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/HnaLocation"
+          }
+        }
+      },
+      "HnaLocation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "locationUnCode": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaOutOfGauge": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "front": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "right": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rear": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaRailHandlingData": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "finalDestination": {
+                "$ref": "#/components/schemas/HnaLocation"
+              },
+              "interTerminalTransportLocation": {
+                "$ref": "#/components/schemas/HnaLocation"
+              },
+              "railServiceCenterCode": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HnaReefer": {
+        "type": "object",
+        "properties": {
+          "temperatureFixed": {
+            "type": "boolean"
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "minimumTemperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "maximumTemperature": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "HnaRoadHandlingData": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          }
+        ]
+      },
+      "HnaShippingCompany": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "scacCode": {
+            "type": "string"
+          },
+          "scacDisplayCode": {
+            "type": "string"
+          },
+          "smdgCode": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaSizeType": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaTerminal": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          },
+          "smdgCode": {
+            "type": "string"
+          },
+          "bicsCode": {
+            "type": "string"
+          },
+          "quayName": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaAttachedHandlingCreationRequest": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+          "preNotification": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HnaBargeEstimatedHandlings": {
+        "type": "object",
+        "properties": {
+          "dischargeTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeEmpty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingEmpty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeOutOfGauge": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeTwinnable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeStacked": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeBundles": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingOutOfGauge": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingTwinnable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingStacked": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingBundles": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shifters": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estimatedSizes": {
+            "$ref": "#/components/schemas/HnaEstimatedSizes"
+          }
+        }
+      },
+      "HnaBargeVisitData": {
+        "required": [
+          "eta"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVisitData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "operatorRemarks": {
+                "type": "string"
+              },
+              "etd": {
+                "type": "string"
+              },
+              "cranesUsable": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "appointment": {
+                "type": "boolean"
+              },
+              "fixedWindow": {
+                "$ref": "#/components/schemas/HnaFixedWindow"
+              },
+              "estimatedHandlings": {
+                "$ref": "#/components/schemas/HnaBargeEstimatedHandlings"
+              }
+            }
+          }
+        ]
+      },
+      "HnaEstimatedSizes": {
+        "type": "object",
+        "properties": {
+          "discharge20ftAndUnder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discharge20To30ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discharge30To40ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeOver40ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loading20ftAndUnder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loading20To30ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loading30To40ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingOver40ft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingTeuLost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeTeuLost": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaFixedWindow": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaRailEstimatedHandlings": {
+        "type": "object",
+        "properties": {
+          "dischargeTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dischargeEmpty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loadingEmpty": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaRailTimeTableEntry": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaRailVisitData": {
+        "required": [
+          "eta"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVisitData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "etd": {
+                "type": "string"
+              },
+              "estimatedHandlings": {
+                "$ref": "#/components/schemas/HnaRailEstimatedHandlings"
+              },
+              "timetableEntry": {
+                "$ref": "#/components/schemas/HnaRailTimeTableEntry"
+              }
+            }
+          }
+        ]
+      },
+      "HnaVisitCreationRequest": {
+        "required": [
+          "terminal",
+          "visitData",
+          "voyageId"
+        ],
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          },
+          "visitData": {
+            "$ref": "#/components/schemas/HnaVisitData"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/HnaTerminal"
+          }
+        }
+      },
+      "HnaVisitData": {
+        "required": [
+          "eta"
+        ],
+        "type": "object",
+        "properties": {
+          "modality": {
+            "type": "string"
+          },
+          "eta": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "modality"
+        }
+      },
+      "HnaVoyageCreationResponse": {
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaBargePoint": {
+        "type": "object"
+      },
+      "HnaBargeReference": {
+        "type": "object",
+        "properties": {
+          "europeId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaBargeVoyageData": {
+        "required": [
+          "barge",
+          "eta"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVoyageData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "inHouseDischargeNumber": {
+                "type": "string"
+              },
+              "inHouseLoadingNumber": {
+                "type": "string"
+              },
+              "eta": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "etd": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "teuOnArrival": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "reservedTeu": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "barge": {
+                "$ref": "#/components/schemas/HnaBargeReference"
+              },
+              "additionalCapacity": {
+                "$ref": "#/components/schemas/HnaCapacity"
+              },
+              "planningNotBeforeEta": {
+                "type": "boolean"
+              },
+              "entryPoint": {
+                "$ref": "#/components/schemas/HnaBargePoint"
+              },
+              "exitPoint": {
+                "$ref": "#/components/schemas/HnaBargePoint"
+              },
+              "previousVoyageId": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HnaCapacity": {
+        "type": "object",
+        "properties": {
+          "teuCapacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaContactPerson": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaRailVoyageData": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVoyageData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "train": {
+                "$ref": "#/components/schemas/HnaTrain"
+              },
+              "shuttle": {
+                "type": "string"
+              },
+              "dischargeVoyageNumber": {
+                "type": "string"
+              },
+              "loadingVoyageNumber": {
+                "type": "string"
+              },
+              "dischargeReference": {
+                "type": "string"
+              },
+              "loadingReference": {
+                "type": "string"
+              },
+              "firstDepartureDate": {
+                "type": "string"
+              },
+              "origin": {
+                "$ref": "#/components/schemas/HnaLocation"
+              },
+              "destination": {
+                "$ref": "#/components/schemas/HnaLocation"
+              },
+              "tractionSupplier": {
+                "$ref": "#/components/schemas/HnaTractionSupplier"
+              }
+            }
+          }
+        ]
+      },
+      "HnaTractionSupplier": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaTrain": {
+        "type": "object",
+        "properties": {
+          "trainNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaVoyageCreationRequest": {
+        "required": [
+          "voyageData"
+        ],
+        "type": "object",
+        "properties": {
+          "voyageData": {
+            "$ref": "#/components/schemas/HnaVoyageData"
+          },
+          "contactPerson": {
+            "$ref": "#/components/schemas/HnaContactPerson"
+          }
+        }
+      },
+      "HnaVoyageData": {
+        "required": [
+          "modality"
+        ],
+        "type": "object",
+        "properties": {
+          "modality": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "modality"
+        }
+      },
+      "HnaFinalizeLoadDischargeListRequest": {
+        "required": [
+          "visitId"
+        ],
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "ignoreMinimumCallsize": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HnaAcceptStatus": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+			"description": "For loading containers the following statuses are used: AVAILABLE, SIZETYPE_APPROVED, COMMERCIAL_RELEASE, CUSTOMS_DOCUMENT, BLOCKED. For discharging containers the following statuses are used: SIZETYPE_APPROVED, BOOKING_APPROVED, CUSTOMS_DOCUMENT"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string"
+          },
+          "remark": {
+            "type": "string",
+			"description": "For status BOOKING_APPROVED this field will container the yard opening in UTC datetime 2024-03-07T00:00:00+01:00"
+          }
+        }
+      },
+      "HnaBollard": {
+        "type": "object",
+        "properties": {
+          "bicsCode": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "coordinates": {
+            "type": "object"
+          },
+          "metersToNextBollard": {
+            "type": "number",
+            "format": "double"
+          },
+          "mooringSide": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaDamages": {
+        "type": "object",
+        "properties": {
+          "typeOfDamages": {
+            "type": "string"
+          },
+          "damageArea": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaDangerousGoods": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "unCode": {
+            "type": "string"
+          },
+          "hazardClass": {
+            "type": "string"
+          },
+          "subsidiaryRisk": {
+            "type": "string"
+          },
+          "emsFireCode": {
+            "type": "string"
+          },
+          "emsSpillageCode": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "string"
+          },
+          "segregationGroup": {
+            "type": "string"
+          },
+          "packingGroup": {
+            "type": "string"
+          },
+          "flashPoint": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "HnaDeclarant": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "countryUnCode": {
+            "type": "string"
+          },
+          "countryName": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "faxNumber": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "customsEORINumber": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          },
+          "chamberOfCommerceNumber": {
+            "type": "string"
+          },
+          "scacCode": {
+            "type": "string"
+          },
+          "scacDisplayCode": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaDeepsea": {
+        "type": "object",
+        "properties": {
+          "shipName": {
+            "type": "string"
+          },
+          "imoCode": {
+            "type": "string"
+          },
+          "voyageNUmber": {
+            "type": "string"
+          },
+          "eta": {
+            "type": "string"
+          },
+          "etd": {
+            "type": "string"
+          },
+          "expectedDischargeTime": {
+            "type": "string"
+          },
+          "radioCallSign": {
+            "type": "string"
+          },
+          "shipsStayReference": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaDetachedHandlingDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "handlingId": {
+            "type": "string"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/HnaResponseTerminal"
+          },
+          "declarant": {
+            "$ref": "#/components/schemas/HnaDeclarant"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+          "handlingStatus": {
+            "$ref": "#/components/schemas/HnaHandlingStatus"
+          },
+          "eta": {
+            "type": "string"
+          },
+          "cancelled": {
+            "type": "boolean"
+          },
+          "attached": {
+            "type": "boolean"
+          },
+           "deepSea": {
+            "$ref": "#/components/schemas/HnaDeepsea"
+          },
+          "charter": {
+            "type": "object"
+          },
+          "cargoDirectorShortName": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "handlingDeclaration": {
+            "$ref": "#/components/schemas/HnaHandlingDeclaration"
+          }
+        }
+      },
+      "HnaHandlingDeclaration": {
+        "type": "object",
+        "properties": {
+          "declarationUsingUpdateBypass": {
+            "type": "boolean"
+          },
+          "cancelForUpdateByPassAcceptedByTerminal": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "acceptStatuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaAcceptStatus"
+            }
+          },
+          "rejectReasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaRejectReason"
+            }
+          }
+        }
+      },
+      "HnaHandlingStatus": {
+        "type": "object",
+        "properties": {
+          "equipmentNumber": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tareWeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sealNumber": {
+            "type": "string"
+          },
+          "reefer": {
+            "$ref": "#/components/schemas/HnaReefer"
+          },
+          "outOfGauge": {
+            "$ref": "#/components/schemas/HnaOutOfGauge"
+          },
+          "window": {
+            "$ref": "#/components/schemas/HnaWindow"
+          },
+          "dangerousGoods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaDangerousGoods"
+            }
+          },
+          "bookingNumber": {
+            "type": "string"
+          },
+          "shippingCompany": {
+            "$ref": "#/components/schemas/HnaShippingCompany"
+          },
+          "sizeType": {
+            "$ref": "#/components/schemas/HnaSizeType"
+          },
+          "full": {
+            "type": "boolean"
+          },
+          "shippersOwned": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "doorOpen": {
+            "type": "boolean"
+          },
+          "chainWork": {
+            "type": "boolean"
+          },
+          "generator": {
+            "type": "boolean"
+          },
+          "damageRemark": {
+            "type": "string"
+          },
+          "previousPort": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "masterBundleContainerNumber": {
+            "type": "string"
+          },
+          "deepSea": {
+            "$ref": "#/components/schemas/HnaDeepsea"
+          },
+          "closestBollard": {
+            "$ref": "#/components/schemas/HnaBollard"
+          },
+          "releaseForModality": {
+            "type": "string"
+          },
+          "documentsPresent": {
+            "type": "boolean"
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaNotification"
+            }
+          },
+          "equipmentStatusCode": {
+            "type": "string"
+          },
+          "documentNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "damages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaDamages"
+            }
+          }
+        }
+      },
+      "HnaNotification": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaRejectReason": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "terminalDescription": {
+            "type": "string"
+          },
+          "parsedReason": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaResponseTerminal": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          },
+          "smdgCode": {
+            "type": "string"
+          },
+          "bicsCode": {
+            "type": "string"
+          },
+          "quayName": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/HnaLocation"
+          },
+          "allowedModalities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tarRequired": {
+            "type": "boolean"
+          },
+          "roadLicenseIdRequired": {
+            "type": "boolean"
+          },
+          "roadStatusRequestAllowed": {
+            "type": "boolean"
+          },
+          "quaySelectByDeclarantForbidden": {
+            "type": "boolean"
+          },
+          "updateAllowed": {
+            "type": "boolean"
+          },
+          "maxSealNumberLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "acceptAfterRejectForbidden": {
+            "type": "boolean"
+          },
+          "terminalSettings": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "prenotifyOnlyAfterVisitAccepted": {
+            "type": "boolean"
+          },
+          "prenotificationRestrictedToDeclarants": {
+            "type": "object"
+          }
+        }
+      },
+      "HnaWindow": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaBargeHandling": {
+        "type": "object",
+        "properties": {
+          "handlingId": {
+            "type": "string"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaBargeHandlingData"
+          },
+          "handlingType": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaCargoDeclarant": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "countryUnCode": {
+            "type": "string"
+          },
+          "countryName": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "faxNumber": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "customsEORINumber": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          },
+          "chamberOfCommerceNumber": {
+            "type": "string"
+          },
+          "scacCode": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaHandlingResult": {
+        "type": "object",
+        "properties": {
+          "acutalTimeOfHandling": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaLoadDischargeListSettings": {
+        "type": "object",
+        "properties": {
+          "autoRejectEnabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HnaLocationOnTrain": {
+        "type": "object",
+        "properties": {
+          "wagonNumber": {
+            "type": "string"
+          },
+          "containerPosition": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaRailHandling": {
+        "type": "object",
+        "properties": {
+          "handlingId": {
+            "type": "string"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaRailHandlingData"
+          },
+          "handlingStatus": {
+            "$ref": "#/components/schemas/HnaHandlingStatus"
+          },
+          "handlingResult": {
+            "$ref": "#/components/schemas/HnaHandlingResult"
+          },
+          "cargoDeclarantShortName": {
+            "type": "string"
+          },
+          "cancelled": {
+            "type": "boolean"
+          },
+          "extra": {
+            "type": "boolean"
+          },
+          "preNotification": {
+            "type": "boolean"
+          },
+          "locationOnTrain": {
+            "$ref": "#/components/schemas/HnaLocationOnTrain"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "handlingDeclaration": {
+            "$ref": "#/components/schemas/HnaHandlingDeclaration"
+          },
+          "handlingType": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaTerminalResponse": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string"
+          },
+          "ean": {
+            "type": "string"
+          },
+          "bicsCode": {
+            "type": "string"
+          },
+          "quayName": {
+            "type": "string"
+          },
+          "smdgCode": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/HnaLocation"
+          },
+          "allowedModalities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tarRequired": {
+            "type": "boolean"
+          },
+          "roadLicenseIdRequired": {
+            "type": "boolean"
+          },
+          "roadStatusRequestAllowed": {
+            "type": "boolean"
+          },
+          "bargeStatusRequestForbidden": {
+            "type": "boolean"
+          },
+          "loadDischargeListSettings": {
+            "$ref": "#/components/schemas/HnaLoadDischargeListSettings"
+          },
+          "quaySelectByDeclarantForbidden": {
+            "type": "boolean"
+          },
+          "handlingUpdateForbidden": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxSealNumberLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "acceptAfterRejectForbidden": {
+            "type": "boolean"
+          },
+          "terminalSettings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaTerminalSetting"
+            }
+          },
+          "nextlogicParticipant": {
+            "type": "boolean"
+          },
+          "prenotifyOnlyAfterVisitAccepted": {
+            "type": "boolean"
+          },
+          "prenotificationRestrictedToDeclarants": {
+            "type": "object"
+          }
+        }
+      },
+      "HnaTerminalSetting": {
+        "type": "object",
+        "properties": {
+          "loading": {
+            "type": "boolean"
+          },
+          "full": {
+            "type": "boolean"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "sealNumberAllowed": {
+            "type": "boolean"
+          },
+          "reeferAllowed": {
+            "type": "boolean"
+          },
+          "grossWeightAllowed": {
+            "type": "boolean"
+          },
+          "outOfGaugeAllowed": {
+            "type": "boolean"
+          },
+          "dangerousGoodsAllowed": {
+            "type": "boolean"
+          },
+          "cargoCutOffInMinutes": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaTrainVoyageData": {
+        "type": "object",
+        "properties": {
+          "modality": {
+            "type": "string"
+          },
+          "train": {
+            "$ref": "#/components/schemas/HnaTrain"
+          },
+          "shuttle": {
+            "type": "string"
+          },
+          "dischargeVoyageNumber": {
+            "type": "string"
+          },
+          "loadingVoyageNumber": {
+            "type": "string"
+          },
+          "dischargeReference": {
+            "type": "string"
+          },
+          "loadingReference": {
+            "type": "string"
+          },
+          "firstDepartureDate": {
+            "type": "string"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/HnaLocation"
+          },
+          "destination": {
+            "$ref": "#/components/schemas/HnaLocation"
+          },
+          "tractionSupplier": {
+            "$ref": "#/components/schemas/HnaTractionSupplier"
+          }
+        }
+      },
+      "HnaVisitDeclaration": {
+        "type": "object",
+        "properties": {
+          "acknowledgedByTerminal": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "rejectReasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaRejectReason"
+            }
+          }
+        }
+      },
+      "HnaVoyageBargeGetResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVoyageResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              },
+              "declarant": {
+                "$ref": "#/components/schemas/HnaDeclarant"
+              },
+              "cancelled": {
+                "type": "boolean"
+              },
+              "modality": {
+                "type": "string"
+              },
+              "cargoDeclarants": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/HnaCargoDeclarant"
+                }
+              },
+              "voyageData": {
+                "$ref": "#/components/schemas/HnaBargeVoyageData"
+              },
+              "visits": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/HnaVoyageBargeVisit"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HnaVoyageBargeVisit": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "visitData": {
+            "$ref": "#/components/schemas/HnaVisitData"
+          },
+          "requestedVisitData": {
+            "type": "object"
+          },
+          "plannedVisitData": {
+            "type": "object"
+          },
+          "visitCancelled": {
+            "type": "boolean"
+          },
+          "terminal": {
+            "type": "object"
+          },
+          "handlings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaBargeHandling"
+            }
+          },
+          "loadDischargeListDeclarations": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "endOfOperations": {
+            "type": "string"
+          },
+          "loadDischargeListClosed": {
+            "type": "string"
+          },
+          "loadDischargeListClosing": {
+            "type": "string"
+          },
+          "visitCompleted": {
+            "type": "boolean"
+          },
+          "loadDischargeListStatus": {
+            "type": "string"
+          },
+          "terminalRemarks": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "neverAcknowledged": {
+            "type": "boolean"
+          },
+          "arrived": {
+            "type": "boolean"
+          },
+          "visitDeclaration": {
+            "$ref": "#/components/schemas/HnaVisitDeclaration"
+          }
+        }
+      },
+      "HnaVoyageDetachedHandlingGetResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVoyageResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              },
+              "declarant": {
+                "$ref": "#/components/schemas/HnaDeclarant"
+              },
+              "cancelled": {
+                "type": "boolean"
+              },
+              "modality": {
+                "type": "string"
+              },
+              "cargoDeclarants": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/HnaCargoDeclarant"
+                }
+              },
+              "handlingId": {
+                "type": "string"
+              },
+              "terminal": {
+                "$ref": "#/components/schemas/HnaTerminalResponse"
+              },
+              "handlingData": {
+                "$ref": "#/components/schemas/HnaHandlingData"
+              },
+              "handlingStatus": {
+                "$ref": "#/components/schemas/HnaHandlingStatus"
+              },
+              "eta": {
+                "type": "string"
+              },
+              "attached": {
+                "type": "boolean"
+              },
+              "handlingDeclaration": {
+                "$ref": "#/components/schemas/HnaHandlingDeclaration"
+              }
+            }
+          }
+        ]
+      },
+      "HnaVoyageRailGetResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaVoyageResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              },
+              "declarant": {
+                "$ref": "#/components/schemas/HnaDeclarant"
+              },
+              "cancelled": {
+                "type": "boolean"
+              },
+              "modality": {
+                "type": "string"
+              },
+              "cargoDeclarants": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/HnaCargoDeclarant"
+                }
+              },
+              "voyageData": {
+                "$ref": "#/components/schemas/HnaTrainVoyageData"
+              },
+              "visits": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/HnaVoyageRailVisit"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HnaVoyageRailVisit": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "visitData": {
+            "type": "object"
+          },
+          "requestedVisitData": {
+            "type": "object"
+          },
+          "acknowledgedRequestedVisitData": {
+            "type": "object"
+          },
+          "visitCancelled": {
+            "type": "boolean"
+          },
+          "requestedTerminal": {
+            "type": "object"
+          },
+          "terminal": {
+            "type": "object"
+          },
+          "visitDeclarations": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "handlings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaRailHandling"
+            }
+          },
+          "wagonOrder": {
+            "type": "object"
+          },
+          "usingVisitDeclarationStatus": {
+            "type": "boolean"
+          },
+          "visitDeclarationStatus": {
+            "type": "string"
+          },
+          "handlingSummary": {
+            "type": "object"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "visitCompleted": {
+            "type": "boolean"
+          },
+          "declared": {
+            "type": "boolean"
+          },
+          "neverAccepted": {
+            "type": "boolean"
+          },
+          "neverAcknowledged": {
+            "type": "boolean"
+          },
+          "visitDeclarationRejectedBefore": {
+            "type": "boolean"
+          },
+          "arrived": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "acknowledgedByOperator": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HnaVoyageResponse": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "HnaVoyageReferenceRequest": {
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaMoveHandlingRequest": {
+        "required": [
+          "handlingId",
+          "nextVisitId",
+          "nextVoyageId"
+        ],
+        "type": "object",
+        "properties": {
+          "handlingId": {
+            "type": "string"
+          },
+          "nextVisitId": {
+            "type": "string"
+          },
+          "nextVoyageId": {
+            "type": "string"
+          },
+          "preNotification": {
+            "type": "boolean"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          }
+        }
+      },
+      "HnaVisitMoveRequest": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "nextVoyageId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaCargoDeclarantsUpdateRequest": {
+        "required": [
+          "voyageId"
+        ],
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          },
+          "cargoDeclarants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaCargoDeclarant"
+            }
+          }
+        }
+      },
+      "HnaDetachedHandlingUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "handlingId": {
+            "type": "string"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/HnaTerminal"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+          "eta": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaAttachedHandlingUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+          "preNotification": {
+            "type": "boolean"
+          },
+          "handlingId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaVisitUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "visitId": {
+            "type": "string"
+          },
+          "visitData": {
+            "$ref": "#/components/schemas/HnaVisitData"
+          }
+        }
+      },
+      "HnaVoyageUpdateRequest": {
+        "required": [
+          "voyageData",
+          "voyageId"
+        ],
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          },
+          "voyageData": {
+            "$ref": "#/components/schemas/HnaVoyageData"
+          }
+        }
+      },
+      "HnaRestrictionUpdateRequest": {
+        "required": [
+          "restrictions",
+          "voyageId"
+        ],
+        "type": "object",
+        "properties": {
+          "voyageId": {
+            "type": "string"
+          },
+          "restrictions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaRestrictions"
+            }
+          }
+        }
+      },
+      "HnaRestrictions": {
+        "type": "object",
+        "properties": {
+          "visitIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transportingReefers": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HnaDisconnectRequest": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        }
+      },
+      "HnaBargeVoyageUpdateState": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HnaCerVoyageUpdateState": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          }
+        ]
+      },
+      "HnaDetachedHandlingState": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "handlingId": {
+                "type": "string"
+              },
+              "terminal": {
+                "$ref": "#/components/schemas/HnaResponseTerminal"
+              },
+              "plannedQuay": {
+                "$ref": "#/components/schemas/HnaResponseTerminal"
+              },
+              "handlingData": {
+                "type": "object"
+              },
+              "handlingStatus": {
+                "type": "object"
+              },
+              "eta": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "cancelled": {
+                "type": "boolean"
+              },
+              "attached": {
+                "type": "boolean"
+              },
+              "deepSea": {
+                "type": "object"
+              },
+              "cargoDirectorShortName": {
+                "type": "string"
+              },
+              "handlingDeclaration": {
+                "$ref": "#/components/schemas/HnaHandlingDeclaration"
+              }
+            }
+          }
+        ]
+      },
+      "HnaListenResponse": {
+        "type": "object",
+        "properties": {
+          "lastIndex": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "clientSegment": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "updates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HnaListenUpdateResponse"
+            }
+          }
+        }
+      },
+      "HnaListenUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "before": {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          "after": {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          "type": {
+            "type": "string"
+          },
+          "triggeredByOrganisation": {
+            "type": "boolean"
+          },
+          "triggeredByUser": {
+            "type": "boolean"
+          },
+          "triggeredByRecipient": {
+            "type": "object"
+          }
+        }
+      },
+      "HnaRoadVoyageUpdateState": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HnaUpdateRailVoyageState": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HnaUpdateState"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "voyageId": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HnaUpdateState": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+		  "declarant": {
+            "$ref": "#/components/schemas/HnaDeclarant"
+          },
+          "handlingId": {
+            "type": "string"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/HnaResponseTerminal"
+          },
+          "handlingData": {
+            "$ref": "#/components/schemas/HnaHandlingData"
+          },
+		  "cancelled": {
+            "type": "boolean"
+          },
+          "attached": {
+            "type": "boolean"
+          },
+		  "handlingDeclaration": {
+            "$ref": "#/components/schemas/HnaHandlingDeclaration"
+          },
+          "eta": {
+            "type": "string"
+          },
+          "deepSea": {
+            "$ref": "#/components/schemas/HnaDeepsea"
+          },
+          "charter": {
+            "type": "object"
+          },
+          "cargoDirectorShortName": {
+            "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "HnaListenRequest": {
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "maxTimeout": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "maxSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HnaResetRequest": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HnaUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "lastIndex": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "clientSegment": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "ApiAlert": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "applicableBo": {
+            "type": "boolean"
+          },
+          "applicableTdo": {
+            "type": "boolean"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiAlerts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          },
+          "entityType": {
+            "type": "string"
+          },
+          "alerts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiAlert"
+            }
+          }
+        }
+      },
+      "ApiAddress": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "town": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "NL|EN|DE",
+            "type": "string"
+          }
+        }
+      },
+      "ApiAvailability": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "location": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "pattern": "CRANE|MOORING|TERMINAL_TRANSFER",
+            "type": "string"
+          },
+          "crane": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfCranes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "craneSpeed": {
+            "type": "number",
+            "format": "double"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "fromBollard": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "toBollard": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxWidth": {
+            "type": "number",
+            "format": "double"
+          },
+          "twinningAllowed": {
+            "type": "boolean"
+          },
+          "canHandleFullContainers": {
+            "type": "boolean"
+          },
+          "canHandleOOG": {
+            "type": "boolean"
+          },
+          "canHandleBundles": {
+            "type": "boolean"
+          },
+          "canServeOverflowTerminals": {
+            "type": "boolean"
+          },
+          "overflowTerminals": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "overflowTerminalCandidates": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "numberTerminalTransferContainers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiBollard": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "position": {
+            "$ref": "#/components/schemas/ApiPosition"
+          },
+          "metersToNextBollard": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "phantomBollard": {
+            "type": "boolean"
+          },
+          "mooringSide": {
+            "pattern": "^$|PORT|STARBOARD",
+            "type": "string"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiCall": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          },
+          "number": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "CallNumber should be unique when provided. When left empty, the system will generate one"
+          },
+          "previousNumber": {
+            "type": "string"
+          },
+          "rotation": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rotationKey": {
+            "type": "string"
+          },
+          "location": {
+            "type": "integer",
+            "description": "Should be the same location as all containers planned on this call",
+            "format": "int64"
+          },
+          "locationKey": {
+            "type": "string"
+          },
+          "quay": {
+            "type": "integer",
+            "description": "Should belong to the <i>location</i>\nQuay is required when location specify that mooring suggestion quay is required (check <i>location.requestQuaySpecification</i>)",
+            "format": "int64"
+          },
+          "mandatoryQuay": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "loadingReference": {
+            "type": "string"
+          },
+          "dischargingReference": {
+            "type": "string"
+          },
+          "numberFullDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberEmptyDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberFullLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberEmptyLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberTwinnable": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberTwinnableLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberTwinnableDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberStacked": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberStackedLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberStackedDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberBundles": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberBundlesLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberBundlesDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberShifters": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOOGLoading": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOOGDischarging": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberTeuLostLoading": {
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "description": "Can and must be filled in if there are out of gauge loading containers on the call (<i>numberOOGLoading</i> is greater than 0)",
+            "format": "double"
+          },
+          "numberTeuLostDischarging": {
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "description": "Can and must be filled in if there are out of gauge discharging containers on the call (<i>numberOOGDischarging</i> is greater than 0)",
+            "format": "double"
+          },
+          "canBeHandledByCraneNumber": {
+            "maximum": 4,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Should be greater than or equal to <i>ship.canBeHandledByCraneNumber</i> when <i>ship.canBeHandledByCraneNumber</i> is specified",
+            "format": "int32"
+          },
+          "fixedWindow": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "hasAppointment": {
+            "type": "boolean",
+            "description": "Appointment is required (<i>hasAppointment</i> must be true) for non integral planning participant (<i>location.integralPlanningParticipant</i> is false)"
+          },
+          "appointmentWindowStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nMust be provided if <i>hasAppointment</i> is true\nTimestamp should be before <i>appointmentWindowEnd</i>\nCannot be changed if loadDischargeList is final (<i>loadDischargeListOpen</i> is not null)\nCannot be changed if appointment is already accepted (check <i>appointmentStatus</i>)",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "appointmentWindowEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nMust be provided if <i>hasAppointment</i> is true\nTimestamp should be after <i>appointmentWindowStart</i>\nCannot be changed if loadDischargeList is final (<i>loadDischargeListOpen</i> is not null)\nCannot be changed if appointment is already accepted (check <i>appointmentStatus</i>)",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "appointmentStatus": {
+            "pattern": "OPEN|REJECTED|ACCEPTED",
+            "type": "string",
+            "description": "Cannot be changed if loadDischargeList is final (<i>loadDischargeListOpen</i> is not null)\nCannot change to open if appointment is already accepted or rejected"
+          },
+          "autoOpenLoadDischargeList": {
+            "type": "boolean"
+          },
+          "canPlanOverClosing": {
+            "type": "boolean"
+          },
+          "expectedWindowStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after the call creation time\nTimestamp should be before <i>expectedWindowEnd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "expectedWindowEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after the call creation time and <i>expectedWindowStart</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "desiredWindowStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be before <i>desiredWindowEnd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "desiredWindowEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after <i>desiredWindowStart</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "desiredWindowTerminalStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be before <i>desiredWindowTerminalEnd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "desiredWindowTerminalEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after <i>desiredWindowTerminalStart</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "eta": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after the call creation time\nTimestamp should be before <i>etd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "ata": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the call creation time)\nTimestamp should be before <i>atfm</i>, <i>atlm</i> and <i>atd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "etfm": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after the call creation time",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "atfm": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the call creation time)\nTimestamp should be after <i>ata</i>\nTimestamp should be before <i>atlm</i> and <i>atd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "etlm": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\n",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "atlm": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the call creation time)\nTimestamp should be after <i>ata</i>, <i>atfm</i>\nTimestamp should be before <i>atd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "etd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after the call creation time and <i>eta</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "atd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the call creation time)\nTimestamp should be after <i>ata</i>, <i>atfm</i>, <i>atlm</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "loadDischargeListOpen": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nCannot finalize a loadDischargeList if there is no green containers on the call\nCannot finalize a loadDischargeList if the call size (number of containers planned on the call) doesn't reach the minimal call size provided by terminal\nCannot reset or update loadDischargeList finalized timestamp if loadDischargeList is final",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "loadDischargeListComplete": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nCannot collect a loadDischargeList if it's not final yet",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "loadDischargeListReopen": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nCannot reopen a loadDischargeList if it's not collected yet",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "numDischargingLessThanOrEqualTo20ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numDischargingFrom21ftThrough30ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numDischargingFrom31ftThrough40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numDischargingGreaterThan40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullDischargingLessThanOrEqualTo20ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullDischargingFrom21ftThrough30ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullDischargingFrom31ftThrough40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullDischargingGreaterThan40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numLoadingLessThanOrEqualTo20ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numLoadingFrom21ftThrough30ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numLoadingFrom31ftThrough40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numLoadingGreaterThan40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullLoadingLessThanOrEqualTo20ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullLoadingFrom21ftThrough30ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullLoadingFrom31ftThrough40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "numFullLoadingGreaterThan40ft": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "overflowAllowed": {
+            "type": "boolean",
+            "description": "When creating a call, if <i>overflowAllowed</i> is not specified, default value from <i>location.overflowAllowedByDefault</i> will be used"
+          },
+          "viaLocationTerminal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "viaQuayTerminal": {
+            "type": "integer",
+            "description": "Should belong to the <i>viaLocationTerminal<i>",
+            "format": "int64"
+          },
+          "serviceLaneInKey": {
+            "type": "string"
+          },
+          "serviceLaneOutKey": {
+            "type": "string"
+          },
+          "portCutOff": {
+            "$ref": "#/components/schemas/ApiCutOffWindowDTO"
+          },
+          "vgmCutOff": {
+            "$ref": "#/components/schemas/ApiCutOffWindowDTO"
+          },
+          "serviceLaneIn": {
+            "type": "string",
+            "readOnly": true
+          },
+          "serviceLaneOut": {
+            "type": "string",
+            "readOnly": true
+          },
+          "rotationNumber": {
+            "type": "string",
+            "readOnly": true
+          },
+          "rotationShip": {
+            "$ref": "#/components/schemas/ApiShip"
+          },
+          "rotationOperator": {
+            "$ref": "#/components/schemas/ApiOperator"
+          },
+          "ptaInitial": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptaPrevious": {
+            "type": "string",
+            "readOnly": true
+          },
+          "pta": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptfm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptlm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptdInitial": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptdPrevious": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptd": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ptcl": {
+            "type": "string",
+            "readOnly": true
+          },
+          "systemEtfm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "systemEtlm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "numberOfCranes": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "cranes": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiCrane"
+            }
+          },
+          "fromBollard": {
+            "$ref": "#/components/schemas/ApiBollard"
+          },
+          "toBollard": {
+            "$ref": "#/components/schemas/ApiBollard"
+          },
+          "bestMooringPosition": {
+            "$ref": "#/components/schemas/ApiBollard"
+          },
+          "primaryCrane": {
+            "$ref": "#/components/schemas/ApiCrane"
+          },
+          "secondaryCrane": {
+            "$ref": "#/components/schemas/ApiCrane"
+          },
+          "availability": {
+            "$ref": "#/components/schemas/ApiAvailability"
+          },
+          "loadingContainers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiContainer"
+            }
+          },
+          "dischargingContainers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiContainer"
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiAlert"
+            }
+          },
+          "locationPlanned": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "quayPlanned": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "originalLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "totalNetTeu": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "viaLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "viaQuay": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "ittMoves": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "ettMoves": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "breinAssignedEttMoves": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "oogAdditionalHandlingDurationMin": {
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "lastBreinUpdate": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "additionalShipLength": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "cancelled": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "rejected": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "btmCall": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "earliestStartPreviousCall": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "portCutOffTime": {
+            "$ref": "#/components/schemas/ApiCutOffWindowDTO"
+          },
+          "vgmCutOffTime": {
+            "$ref": "#/components/schemas/ApiCutOffWindowDTO"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiContainer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          },
+          "loadingLocationKey": {
+            "type": "string",
+            "description": "At least one of <i>loadingLocation</i>, <i>loadingLocationKey</i>, <i>dischargingLocation</i> or <i>dischargingLocationKey</i> should be provided when creating a container\n<i>loadingLocation</i>/<i>loadingLocationKey</i> and <i>dischargingLocation</i>/<i>dischargingLocationKey</i> cannot be the same"
+          },
+          "loadingLocation": {
+            "type": "integer",
+            "description": "At least one of <i>loadingLocation</i>, <i>loadingLocationKey</i>, <i>dischargingLocation</i> or <i>dischargingLocationKey</i> should be provided when creating a container\n<i>loadingLocation</i>/<i>loadingLocationKey</i> and <i>dischargingLocation</i>/<i>dischargingLocationKey</i> cannot be the same",
+            "format": "int64"
+          },
+          "dischargingLocationKey": {
+            "type": "string",
+            "description": "At least one of <i>loadingLocation</i>, <i>loadingLocationKey</i>, <i>dischargingLocation</i> or <i>dischargingLocationKey</i> should be provided when creating a container\n<i>loadingLocation</i>/<i>loadingLocationKey</i> and <i>dischargingLocation</i>/<i>dischargingLocationKey</i> cannot be the same"
+          },
+          "dischargingLocation": {
+            "type": "integer",
+            "description": "At least one of <i>loadingLocation</i>, <i>loadingLocationKey</i>, <i>dischargingLocation</i> or <i>dischargingLocationKey</i> should be provided when creating a container\n<i>loadingLocation</i>/<i>loadingLocationKey</i> and <i>dischargingLocation</i>/<i>dischargingLocationKey</i> cannot be the same",
+            "format": "int64"
+          },
+          "loadingLocationTerminalKey": {
+            "type": "string",
+            "description": "The loading location of the container according to the terminal"
+          },
+          "loadingLocationTerminal": {
+            "type": "integer",
+            "description": "The loading location of the container according to the terminal",
+            "format": "int64"
+          },
+          "dischargingLocationTerminalKey": {
+            "type": "string",
+            "description": "The discharging location of the container according to the terminal"
+          },
+          "dischargingLocationTerminal": {
+            "type": "integer",
+            "description": "The dicharging location of the contaiener according to the terminal",
+            "format": "int64"
+          },
+          "loadingCall": {
+            "type": "integer",
+            "description": "The location of the given call should be the same as <i>loadingLocation</i>\nCannot be changed if given call is final or is collected, check <i>call.loadDischargeListOpen</i> and <i>call.loadDischargeListComplete</i> if this is the case\nCannot be set to null if the container is already on load list\nShould be valid according to the call restrictions from the rotation",
+            "format": "int64"
+          },
+          "dischargingCall": {
+            "type": "integer",
+            "description": "The location of the given call should be the same as <i>dischargingLocation</i>\nCannot be changed if given call is final or is collected\nCannot be set to null if the container is already on discharge list\nShould be valid according to the call restrictions from the rotation",
+            "format": "int64"
+          },
+          "loadingCallKey": {
+            "type": "string",
+            "description": "The location of the given call should be the same as <i>loadingLocation</i>\nCannot be changed if given call is final or is collected, check <i>call.loadDischargeListOpen</i> and <i>call.loadDischargeListComplete</i> if this is the case\nCannot be set to null if the container is already on load list\nShould be valid according to the call restrictions from the rotation"
+          },
+          "dischargingCallKey": {
+            "type": "string",
+            "description": "The location of the given call should be the same as <i>dischargingLocation</i>\nCannot be changed if given call is final or is collected\nCannot be set to null if the container is already on discharge list\nShould be valid according to the call restrictions from the rotation"
+          },
+          "operatorKey": {
+            "type": "string"
+          },
+          "containerNumber": {
+            "pattern": "[A-Za-z]{4}\\d{7}",
+            "type": "string"
+          },
+          "typeGroup": {
+            "maxLength": 4,
+            "minLength": 0,
+            "type": "string",
+            "description": "<i>typeGroup</i> when specified, should match the ISO group code of <i>sizeType</i>"
+          },
+          "sizeType": {
+            "maxLength": 4,
+            "minLength": 0,
+            "type": "string"
+          },
+          "category": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "connectionType": {
+            "pattern": "IMPORT|EXPORT|DOMESTIC|STORAGE|TRANSHIPMENT|TRANSSHIPMENT|CONTINENTAL",
+            "type": "string",
+            "description": "The system accept both <b>transhipment</b> and <b>transshipment</b> as <i>connectionType</i> for incoming messages, but by default the system uses <b>transhipment</b> for outgoing messages"
+          },
+          "grossWeight": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "maximumGrossWeight": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "tareWeight": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "cargoWeight": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "billOfLadingNumber": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "releaseNumberLoading": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^\\S(.*\\S)?$",
+            "type": "string"
+          },
+          "customerReference": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "bookingsReferenceLoading": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "bookingsReferenceDischarging": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "containerReference": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "Can only be specified when creating new container, or leave blank and system will generate a reference automatically"
+          },
+          "sealNumber": {
+            "maxLength": 300,
+            "minLength": 0,
+            "type": "string"
+          },
+          "isSealed": {
+            "type": "boolean"
+          },
+          "temperatureRangeLower": {
+            "type": "number",
+            "description": "Should be less than <i>temperatureRangeUpper</i>",
+            "format": "double"
+          },
+          "temperatureRangeUpper": {
+            "type": "number",
+            "description": "Should be greater than <i>temperatureRangeLower</i>",
+            "format": "double"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "unValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiUNValue"
+            }
+          },
+          "carrierSCACLoading": {
+            "maxLength": 5,
+            "minLength": 0,
+            "type": "string",
+            "description": "Should be the scac code of a shipping company that exists in the system"
+          },
+          "carrierSCACDischarging": {
+            "maxLength": 5,
+            "minLength": 0,
+            "type": "string",
+            "description": "Should be the scac code of a shipping company that exists in the system"
+          },
+          "oogHeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oogLengthFront": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oogLengthBack": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oogWidthRight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oogWidthLeft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doorOpen": {
+            "type": "boolean"
+          },
+          "chainWork": {
+            "type": "boolean"
+          },
+          "generator": {
+            "type": "boolean"
+          },
+          "damage": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "productDetails": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "masterBundleContainerNumber": {
+            "pattern": "[A-Za-z]{4}\\d{7}",
+            "type": "string"
+          },
+          "releasedForBarge": {
+            "type": "boolean"
+          },
+          "releasedForTrain": {
+            "type": "boolean"
+          },
+          "releasedForTruck": {
+            "type": "boolean"
+          },
+          "loadingWindowStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be before <i>loadingWindowEnd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "loadingWindowEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after <i>loadingWindowStart</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "dischargingWindowStart": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be before <i>dischargingWindowEnd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "dischargingWindowEnd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be after <i>dischargingWindowStart</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "closestBollardPositionLoading": {
+            "type": "integer",
+            "description": "Should belong to <i>loadingLocation</i>\nCan only be edited by the owner of <i>loadingLocation</i>",
+            "format": "int64"
+          },
+          "closestBollardPositionDischarging": {
+            "type": "integer",
+            "description": "Should belong to <i>dischargingLocation</i>\nCan only be edited by the owner of <i>dischargingLocation</i>",
+            "format": "int64"
+          },
+          "loaded": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be in the past",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "discharged": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be in the past",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "importShipName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "importShipImo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "importVoyageNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "importEta": {
+            "type": "string"
+          },
+          "exportEstimate": {
+            "type": "string"
+          },
+          "exportShipName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exportShipImo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "exportVoyageNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exportEta": {
+            "type": "string"
+          },
+          "voyageNumberImportExternalId": {
+            "type": "string"
+          },
+          "voyageNumberExportExternalId": {
+            "type": "string"
+          },
+          "deepseaShipNameLoading": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "deepseaShipIMOLoading": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deepseaVoyageNumberLoading": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "deepseaEtaLoading": {
+            "type": "string"
+          },
+          "deepseaEstimateDischarge": {
+            "type": "string"
+          },
+          "deepseaShipNameDischarging": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "deepseaShipIMODischarging": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deepseaVoyageNumberDischarging": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "deepseaEtaDischarging": {
+            "type": "string"
+          },
+          "nextInlandTerminal": {
+            "type": "integer",
+            "description": "Can be filled in only if <i>loadingLocation</i> is present and <i>dischargingLocation</i> is not present",
+            "format": "int64"
+          },
+          "previousPort": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Can be filled in only if <i>loadingLocation</i> is present"
+          },
+          "nextPort": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Can be filled in only if <i>dischargingLocation</i> is present"
+          },
+          "finalPort": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Can be filled in only if <i>dischargingLocation</i> is present"
+          },
+          "terminalHandlingState": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "presentLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "releaseLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "customsLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "blockadeLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "releaseDischarging": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "customsDischarging": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "containerStatusesLoading": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiContainerStatus"
+            }
+          },
+          "containerStatusesDischarging": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiContainerStatus"
+            }
+          },
+          "containerInfoMatchLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "containerStatusColorLoading": {
+            "type": "string",
+            "enum": [
+              "GREEN",
+              "ORANGE",
+              "RED"
+            ]
+          },
+          "containerInfoMatchDischarging": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "containerStatusColorDischarging": {
+            "type": "string",
+            "enum": [
+              "GREEN",
+              "ORANGE",
+              "RED"
+            ]
+          },
+          "previousUnValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiPreviousUNValue"
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiAlert"
+            }
+          },
+          "viaLocationLoading": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "viaQuayLoading": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "viaLocationDischarging": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "viaQuayDischarging": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "onLoadList": {
+            "type": "boolean"
+          },
+          "onDischargeList": {
+            "type": "boolean"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/ApiOperator"
+          },
+          "loadingRotationNumber": {
+            "type": "string"
+          },
+          "loadingCallNumber": {
+            "type": "string"
+          },
+          "dischargingRotationNumber": {
+            "type": "string"
+          },
+          "dischargingCallNumber": {
+            "type": "string"
+          },
+          "isDeepsea": {
+            "type": "boolean"
+          },
+          "carrierKey": {
+            "type": "string"
+          },
+          "importActionVoyageNumber": {
+            "type": "string"
+          },
+          "exportActionVoyageNumber": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cancelled": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "declarantShortName": {
+            "type": "string",
+            "readOnly": true
+          },
+          "releaseNumberDischarging": {
+            "type": "string"
+          },
+          "previousInlandTerminal": {
+            "type": "integer",
+            "format": "int32",
+            "writeOnly": true
+          },
+          "bookingLoading": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          },
+          "bookingDischarging": {
+            "$ref": "#/components/schemas/ApiContainerStatus"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiContainerStatus": {
+        "required": [
+          "status",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "pattern": "OK|NOT_OK|NOT_APPLICABLE",
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "statusMessage": {
+            "type": "string"
+          },
+          "statusMessageCode": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ApiCrane": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "location": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNumber": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromBollard": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "toBollard": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "speed": {
+            "maximum": 40.0,
+            "exclusiveMaximum": false,
+            "minimum": 1.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "height": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "maxWidth": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "outreach": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "twinningAllowed": {
+            "type": "boolean"
+          },
+          "liftCapacity": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "canHandleFullContainers": {
+            "type": "boolean"
+          },
+          "canHandleOOG": {
+            "type": "boolean"
+          },
+          "canHandleBundles": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "readOnly": true
+      },
+      "ApiCutOffWindowDTO": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "string",
+            "enum": [
+              "CATOS",
+              "CMA_CGM"
+            ]
+          },
+          "windowFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "windowTo": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiOpeningHours": {
+        "required": [
+          "day",
+          "fromTime",
+          "toTime"
+        ],
+        "type": "object",
+        "properties": {
+          "day": {
+            "maximum": 7,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "toTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ApiOperator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ApiAddress"
+          },
+          "email": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "language": {
+            "pattern": "NL|EN|DE|VI",
+            "type": "string"
+          },
+          "startTimeWorkday": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "endTimeWorkday": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "workingHours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiOpeningHours"
+            }
+          },
+          "ships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiShip"
+            }
+          },
+          "ean": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiPosition": {
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "maximum": 90.0,
+            "exclusiveMaximum": false,
+            "minimum": -90.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "maximum": 180.0,
+            "exclusiveMaximum": false,
+            "minimum": -180.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "ApiPreviousUNValue": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "unValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiUNValue"
+            }
+          },
+          "handledTime": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiShip": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "eni": {
+            "maxLength": 8,
+            "minLength": 0,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "key": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "mmsi": {
+            "maximum": 999999999,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "maximum": 500,
+            "minimum": 35,
+            "type": "number",
+            "format": "double"
+          },
+          "width": {
+            "maximum": 100,
+            "minimum": 5,
+            "type": "number",
+            "format": "double"
+          },
+          "draughtMin": {
+            "maximum": 100.0,
+            "exclusiveMaximum": false,
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "draughtMax": {
+            "maximum": 100.0,
+            "exclusiveMaximum": false,
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "speedFull": {
+            "maximum": 30.0,
+            "exclusiveMaximum": false,
+            "minimum": 5.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "speedEmpty": {
+            "maximum": 30.0,
+            "exclusiveMaximum": false,
+            "minimum": 5.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "capacityTeu": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "cranesOnShip": {
+            "maximum": 5,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "canBeHandledByCraneNumber": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "language": {
+            "pattern": "NL|EN|DE",
+            "type": "string"
+          },
+          "abbreviation": {
+            "maxLength": 6,
+            "minLength": 0,
+            "type": "string"
+          },
+          "reeferConnections": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "startTimeWorkday": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "endTimeWorkday": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "workingHours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiOpeningHours"
+            }
+          },
+          "email": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "unavailabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiUnavailability"
+            }
+          },
+          "unavailableSaturday": {
+            "type": "boolean"
+          },
+          "unavailableSunday": {
+            "type": "boolean"
+          },
+          "vesselServiceSchedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiVesselServiceScheduleDTO"
+            }
+          },
+          "registrationNumber": {
+            "type": "string"
+          },
+          "callSign": {
+            "type": "string"
+          },
+          "retrieveActuals": {
+            "type": "boolean"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/ApiOperator"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "vesselType": {
+            "type": "string",
+            "enum": [
+              "BARGE",
+              "SEA_SHIP"
+            ]
+          }
+        }
+      },
+      "ApiUNValue": {
+        "type": "object",
+        "properties": {
+          "unNumberId": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "limitedQuantities": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "string"
+          },
+          "imoClass": {
+            "type": "string"
+          },
+          "packageGroup": {
+            "type": "string"
+          },
+          "properShippingName": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiUnavailability": {
+        "required": [
+          "end",
+          "endLocation",
+          "remarks",
+          "start",
+          "startLocation"
+        ],
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "startLocation": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endLocation": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiVesselServiceScheduleDTO": {
+        "type": "object",
+        "properties": {
+          "portCode": {
+            "type": "string"
+          },
+          "portName": {
+            "type": "string"
+          },
+          "terminalName": {
+            "type": "string"
+          },
+          "terminalCode": {
+            "type": "string"
+          },
+          "transitTime": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "BatchResponseApiCall": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "parsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCall"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiReeferRestrictionItem": {
+        "type": "object",
+        "properties": {
+          "fromCall": {
+            "type": "integer",
+            "description": "<i>fromCall</i> should not be the same as <i>toCall</i>\nCall should belong to the rotation",
+            "format": "int64"
+          },
+          "toCall": {
+            "type": "integer",
+            "description": "<i>toCall</i> should not be the same as <i>fromCall</i>\nCall should belong to the rotation",
+            "format": "int64"
+          },
+          "fromCallKey": {
+            "type": "string",
+            "description": "<i>fromCallKey</i> should not be the same as <i>toCallKey</i>\nCall should belong to the rotation"
+          },
+          "toCallKey": {
+            "type": "string",
+            "description": "<i>toCallKey</i> should not be the same as <i>fromCallKey</i>\nCall should belong to the rotation"
+          }
+        },
+        "description": "Reefer restrictions can only be provided when updating a rotation, when providing them with a create request, an error will be thrown"
+      },
+      "ApiRestriction": {
+        "required": [
+          "group"
+        ],
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "array",
+            "description": "Restriction should contain at least 2 groups",
+            "items": {
+              "$ref": "#/components/schemas/ApiRestrictionGroup"
+            }
+          }
+        },
+        "description": "Restrictions can only be provided when updating a rotation, when providing them with a create request, an error will be thrown\nRestrictions should be applied to the loading and discharging call for any containers planned on any calls for this rotation"
+      },
+      "ApiRestrictionGroup": {
+        "type": "object",
+        "properties": {
+          "calls": {
+            "type": "array",
+            "description": "Restriction group should contain at least one call\nCalls in a restriction group should belong to the rotation\nA call can only be used once within a restriction",
+            "items": {
+              "type": "integer",
+              "description": "Restriction group should contain at least one call\nCalls in a restriction group should belong to the rotation\nA call can only be used once within a restriction",
+              "format": "int32"
+            }
+          },
+          "callKeys": {
+            "type": "array",
+            "description": "Restriction group should contain at least one call\nCalls in a restriction group should belong to the rotation\nA call can only be used once within a restriction",
+            "items": {
+              "type": "string",
+              "description": "Restriction group should contain at least one call\nCalls in a restriction group should belong to the rotation\nA call can only be used once within a restriction"
+            }
+          }
+        },
+        "description": "Restriction should contain at least 2 groups"
+      },
+      "ApiRotation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          },
+          "operatorKey": {
+            "type": "string"
+          },
+          "number": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "RotationNumber should be unique when provided. When left empty, the system will generate one"
+          },
+          "ship": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "shipKey": {
+            "type": "string"
+          },
+          "desiredScopeIn": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be before <i>desiredScopeOut</i>\nTimestamp should be recent (at most 24 hours before the rotation creation time)",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "desiredScopeInSkipper": {
+            "type": "string"
+          },
+          "desiredScopeOut": {
+            "type": "string"
+          },
+          "desiredScopeOutSkipper": {
+            "type": "string"
+          },
+          "scopeInLocation": {
+            "type": "integer",
+            "description": "A location of type 'scope in'",
+            "format": "int64"
+          },
+          "scopeOutLocation": {
+            "type": "integer",
+            "description": "A location of type 'scope out'",
+            "format": "int64"
+          },
+          "restrictions": {
+            "type": "array",
+            "description": "Restrictions can only be provided when updating a rotation, when providing them with a create request, an error will be thrown\nRestrictions should be applied to the loading and discharging call for any containers planned on any calls for this rotation",
+            "items": {
+              "$ref": "#/components/schemas/ApiRestriction"
+            }
+          },
+          "reeferRestrictions": {
+            "type": "array",
+            "description": "Reefer restrictions can only be provided when updating a rotation, when providing them with a create request, an error will be thrown",
+            "items": {
+              "$ref": "#/components/schemas/ApiReeferRestrictionItem"
+            }
+          },
+          "expectedScopeIn": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "actualScopeIn": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the rotation creation time)",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "expectedScopeOut": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "actualScopeOut": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be recent (at most 24 hours before the rotation creation time)",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "loadedTeuOnScopeIn": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "maxTeuOnRotation": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "previousRotation": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "previousRotationKey": {
+            "type": "string"
+          },
+          "importVoyageNumber": {
+            "type": "string"
+          },
+          "exportVoyageNumber": {
+            "type": "string"
+          },
+          "calls": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiCall"
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ApiAlert"
+            }
+          },
+          "plannedScopeIn": {
+            "type": "string",
+            "readOnly": true
+          },
+          "plannedScopeOut": {
+            "type": "string",
+            "readOnly": true
+          },
+          "operator": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "scopeInPlannedLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "scopeInActualLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "scopeOutPlannedLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "scopeOutActualLocation": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "netTime": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "slackTime": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "normTime": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "shortestSailingDistance": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "cancelled": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "integralPlanningRequested": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "planningNotBeforeDesired": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "additionalShipLength": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "cargoDeclarants": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int64",
+              "readOnly": true
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "BatchResponseApiRotation": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "parsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiRotation"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BatchResponseApiOperator": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "parsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiOperator"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BatchResponseApiContainer": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "parsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiContainer"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BatchResponseApiShip": {
+        "type": "object",
+        "properties": {
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "parsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiShip"
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiCallPlanning": {
+        "type": "object",
+        "properties": {
+          "callId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "callKey": {
+            "type": "string"
+          },
+          "pta": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be in the future\nTimestamp should be before <i>ptd</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "ptd": {
+            "type": "string",
+            "description": "Timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>\nTimestamp should be in the future\nTimestamp should be after <i>pta</i>",
+            "example": "2000-01-01T00:00:00Z"
+          },
+          "location": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationKey": {
+            "type": "string"
+          },
+          "quay": {
+            "type": "integer",
+            "description": "Should belong to the provided <i>location</i>",
+            "format": "int64"
+          },
+          "fromBollard": {
+            "type": "integer",
+            "description": "Should belong to the provided <i>quay</i>",
+            "format": "int64"
+          },
+          "toBollard": {
+            "type": "integer",
+            "description": "Should belong to the provided <i>quay</i>",
+            "format": "int64"
+          },
+          "fromBollardDescription": {
+            "type": "string",
+            "description": "Should belong to the provided <i>quay</i>"
+          },
+          "toBollardDescription": {
+            "type": "string",
+            "description": "Should belong to the provided <i>quay</i>"
+          },
+          "numberOfCranes": {
+            "maximum": 2,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "originalLocation": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ApiFixedWindow": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "code": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "location": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "operator": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          },
+          "validFrom": {
+            "pattern": "\\d{4}-\\d{2}-\\d{2}",
+            "type": "string"
+          },
+          "validUntil": {
+            "pattern": "\\d{4}-\\d{2}-\\d{2}",
+            "type": "string"
+          },
+          "startDay": {
+            "maximum": 7,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "startTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "endDay": {
+            "maximum": 7,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "endTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "moves": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ApiLocation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string"
+          },
+          "type": {
+            "pattern": "TERMINAL|DEPOT|HIC_ENTRANCE|HIC_EXIT|INLAND_TERMINAL",
+            "type": "string"
+          },
+          "requestQuaySpecification": {
+            "type": "boolean"
+          },
+          "preHandlingTime": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "postHandlingTime": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "deadlineLoadDischargeListFullContainers": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "deadlineLoadDischargeListFullContainersDischarging": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "deadlineLoadDischargeListEmptyContainersLoading": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "deadlineLoadDischargeListEmptyContainersDischarging": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "autoFinalizeLoadDischargeListByDefault": {
+            "type": "boolean"
+          },
+          "minimalCallSize": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "mooringPositions": {
+            "type": "boolean"
+          },
+          "overflowAllowedByDefault": {
+            "type": "boolean"
+          },
+          "preparationTime": {
+            "maximum": 360,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "averageCraneSpeed": {
+            "maximum": 40,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "doubleCraneFactor": {
+            "maximum": 2.0,
+            "exclusiveMaximum": false,
+            "minimum": 1.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ApiAddress"
+          },
+          "email": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "openingHours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiOpeningHours"
+            }
+          },
+          "standardClosings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiStandardClosing"
+            }
+          },
+          "ittThreshold": {
+            "maximum": 1000,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "maximumDelayPeriodMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maximumGracePeriodMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "releasePeriodMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "position": {
+            "$ref": "#/components/schemas/ApiPosition"
+          },
+          "geofence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiPosition"
+            }
+          },
+          "quays": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiQuay"
+            }
+          },
+          "abbreviation": {
+            "type": "string"
+          },
+          "integralPlanningParticipant": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "key": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiQuay": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "code": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "length": {
+            "maximum": 5000.0,
+            "exclusiveMaximum": false,
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "depth": {
+            "minimum": 0.0,
+            "exclusiveMinimum": false,
+            "type": "number",
+            "format": "double"
+          },
+          "position": {
+            "$ref": "#/components/schemas/ApiPosition"
+          },
+          "bollards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiBollard"
+            }
+          },
+          "cranes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCrane"
+            }
+          }
+        }
+      },
+      "ApiStandardClosing": {
+        "required": [
+          "days",
+          "fromTime",
+          "repeatType",
+          "toTime"
+        ],
+        "type": "object",
+        "properties": {
+          "fromTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "toTime": {
+            "maximum": 1440,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeatType": {
+            "pattern": "YEAR|MONTH|WEEK|NONE",
+            "type": "string"
+          },
+          "days": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetShipByIdList": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "externalIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ApiTerminalHandlingState": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stateKey": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "archived": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiUnNumber": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imoClass": {
+            "type": "string"
+          },
+          "packageGroup": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "properShippingName": {
+            "type": "string"
+          },
+          "classificationCode": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
